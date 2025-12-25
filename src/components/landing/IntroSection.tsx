@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, easeOut } from "framer-motion";
 import { cn } from "@/lib/utils/cn";
 
 /**
@@ -136,7 +136,7 @@ export function IntroSection() {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut"
+        ease: easeOut
       }
     },
   };
