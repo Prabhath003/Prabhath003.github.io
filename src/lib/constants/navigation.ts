@@ -41,4 +41,10 @@ export const NAV_ITEMS: NavItem[] = [
     question: "How can I reach you?",
     href: "/contact",
   },
+  {
+    id: "resume",
+    label: "Resume",
+    question: "Show me your resume",
+    href: "/resume",
+  },
 ];

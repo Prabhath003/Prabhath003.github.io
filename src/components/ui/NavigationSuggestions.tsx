@@ -9,6 +9,7 @@ import {
   Zap,
   Code,
   Mail,
+  FileText,
 } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/constants/navigation";
 import { cn } from "@/lib/utils/cn";
@@ -30,6 +31,7 @@ function getNavIcon(id: string) {
     experience: <Briefcase size={18} />,
     skills: <Zap size={18} />,
     contact: <Mail size={18} />,
+    resume: <FileText size={18} />,
   };
   return iconMap[id] || null;
 }
