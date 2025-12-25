@@ -74,9 +74,16 @@ export default function Home() {
         <UpdateBanner />
       </motion.div>
 
-      {/* Footer - Below fold with large spacing */}
-      <div className="h-32 lg:h-40"></div>
-      <Footer />
+      {/* Footer - Fades in during neural zoom phase (~12-14s) */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={loadingComplete ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ delay: 12, duration: 1.5 }}
+        className="w-full"
+      >
+        <div className="h-32 lg:h-40"></div>
+        <Footer />
+      </motion.div>
     </div>
   );
 }
