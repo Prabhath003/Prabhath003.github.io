@@ -33,7 +33,9 @@ export interface NavItem {
 
 export interface ContactInfo {
   email: string;
+  phone: string;
   linkedin: string;
   github: string;
   twitter?: string;
+  calendly: string;
 }

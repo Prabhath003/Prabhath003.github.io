@@ -41,7 +41,7 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
     if (isComplete) {
       const timer = setTimeout(() => {
         setShowContent(true);
-      }, 1500);
+      }, 0); // Instant transition to fade out
       return () => clearTimeout(timer);
     }
   }, [isComplete]);
@@ -50,7 +50,7 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
     if (showContent) {
       const timer = setTimeout(() => {
         onComplete();
-      }, 1000);
+      }, 0); // Instant completion
       return () => clearTimeout(timer);
     }
   }, [showContent, onComplete]);
@@ -59,7 +59,7 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: showContent ? 0 : 1 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.3 }}
       className="fixed inset-0 z-50 flex items-center justify-center bg-white"
       onAnimationComplete={() => {
         if (showContent) {

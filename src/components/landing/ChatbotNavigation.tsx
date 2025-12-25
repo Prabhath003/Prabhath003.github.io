@@ -102,15 +102,17 @@ export function ChatbotNavigation() {
         </p>
       </div>
 
-      {/* Chat-like input area */}
-      <div className="relative">
+      {/* Chat-like input area with dropdown */}
+      <div
+        className="relative"
+        onMouseEnter={() => setShowingSuggestions(true)}
+        onMouseLeave={() => setShowingSuggestions(false)}
+      >
         <div
           className={cn(
             "rounded-lg border-2 border-white/30 bg-gray-50 p-4 transition-all duration-200",
             isShowingSuggestions && "border-blue-400 shadow-lg"
           )}
-          onMouseEnter={() => setShowingSuggestions(true)}
-          onMouseLeave={() => setShowingSuggestions(false)}
         >
           {/* Typed question */}
           <div className="min-h-12">
@@ -138,13 +140,11 @@ export function ChatbotNavigation() {
         </div>
 
         {/* Suggestions dropdown */}
-        <div className="relative">
-          <NavigationSuggestions
-            isOpen={isShowingSuggestions}
-            onSelect={handleSuggestionClick}
-            className="top-full mt-2"
-          />
-        </div>
+        <NavigationSuggestions
+          isOpen={isShowingSuggestions}
+          onSelect={handleSuggestionClick}
+          className="top-full -mt-2"
+        />
       </div>
 
       {/* Quick stats */}

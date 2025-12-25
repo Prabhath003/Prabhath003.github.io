@@ -180,8 +180,8 @@ export function NeuralNetworkBackground() {
 
       // Phase timing
       const animationPhase = timeRef.current;
-      const layerRevealDuration = 150;
-      const initialRevealEnd = layers.length * layerRevealDuration; // ~750 frames for all layers
+      const layerRevealDuration = 60; // Faster reveal (was 150) - 5s instead of 12.5s
+      const initialRevealEnd = layers.length * layerRevealDuration; // ~300 frames for all layers (5s)
       const zoomDuration = 100; // frames for zoom transition
       const zoomStart = initialRevealEnd;
       const zoomEnd = zoomStart + zoomDuration;

@@ -49,7 +49,7 @@ export function NavigationSuggestions({
       animate="visible"
       exit="exit"
       className={cn(
-        "absolute left-0 right-0 w-full rounded-lg border border-white/40 bg-white/30 backdrop-blur-md p-3 shadow-lg",
+        "absolute left-0 right-0 w-full rounded-lg border border-white/40 bg-white/90 backdrop-blur-md p-3 shadow-lg",
         "max-h-80 overflow-y-auto",
         className
       )}

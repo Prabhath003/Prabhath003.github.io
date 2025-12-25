@@ -223,34 +223,40 @@ export function IntroSection() {
       </motion.p>
 
       {/* Brief Introduction */}
-      <motion.div variants={itemVariants} className="space-y-2 min-h-[4em] w-full text-left">
-        <p className="text-sm leading-relaxed text-slate-700 sm:text-base">
+      <motion.div variants={itemVariants} className="space-y-0 min-h-[4em] w-full text-left">
+        <p className="text-xs leading-relaxed text-slate-700 sm:text-sm">
           {introTextDisplay}
           {!introTextComplete && (
             <span className="ml-1 inline-block h-4 w-1 animate-pulse bg-blue-600" />
           )}
         </p>
-        <p className="text-xs leading-relaxed text-slate-700 sm:text-base">
+        <p className="text-xs leading-relaxed text-slate-700 sm:text-sm">
           LLM fine-tuning • Knowledge graphs • Voice AI • Model optimization
         </p>
       </motion.div>
 
       {/* CTA */}
       <motion.div variants={itemVariants} className="flex gap-3 pt-2 w-full justify-start">
-        <button className={cn(
-          "inline-flex items-center justify-center rounded-lg px-5 py-2 text-sm font-semibold",
-          "bg-gradient-to-r from-blue-600 to-purple-600 text-white",
-          "hover:shadow-lg transition-all duration-200 hover:scale-105"
-        )}>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className={cn(
+            "inline-flex items-center justify-center rounded-lg px-5 py-2 text-sm font-semibold",
+            "bg-gradient-to-r from-blue-600 to-purple-600 text-white",
+            "hover:shadow-lg transition-all duration-200"
+          )}>
           My Work
-        </button>
-        <button className={cn(
-          "inline-flex items-center justify-center rounded-lg px-5 py-2 text-sm font-semibold",
-          "bg-white/40 backdrop-blur text-slate-700 border border-white/40",
-          "hover:bg-white/60 transition-all duration-200"
-        )}>
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className={cn(
+            "inline-flex items-center justify-center rounded-lg px-5 py-2 text-sm font-semibold",
+            "bg-transparent text-slate-700 border border-slate-400",
+            "hover:border-slate-600 hover:shadow-md transition-all duration-200"
+          )}>
           Contact
-        </button>
+        </motion.button>
       </motion.div>
     </motion.div>
   );
