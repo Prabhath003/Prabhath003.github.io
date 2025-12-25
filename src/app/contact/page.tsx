@@ -131,7 +131,12 @@ export default function ContactPage() {
           <h3 className="text-lg font-bold text-slate-900 mb-6">
             Schedule a Meeting
           </h3>
-          <div className="calendly-inline-widget" data-url={CONTACT_INFO.calendly} style={{ minHeight: "600px" }}></div>
+          <div
+            className="calendly-inline-widget"
+            data-url={CONTACT_INFO.calendly}
+            style={{ minHeight: "600px" }}
+            suppressHydrationWarning
+          ></div>
           <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </motion.div>
 

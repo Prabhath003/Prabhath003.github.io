@@ -2,6 +2,14 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  Home,
+  User,
+  Briefcase,
+  Zap,
+  Code,
+  Mail,
+} from "lucide-react";
 import { NAV_ITEMS } from "@/lib/constants/navigation";
 import { cn } from "@/lib/utils/cn";
 
@@ -12,9 +20,24 @@ interface NavigationSuggestionsProps {
 }
 
 /**
+ * Get icon for a navigation item based on its ID
+ */
+function getNavIcon(id: string) {
+  const iconMap: Record<string, React.ReactNode> = {
+    home: <Home size={18} />,
+    about: <User size={18} />,
+    projects: <Code size={18} />,
+    experience: <Briefcase size={18} />,
+    skills: <Zap size={18} />,
+    contact: <Mail size={18} />,
+  };
+  return iconMap[id] || null;
+}
+
+/**
  * NavigationSuggestions Component
  * Displays navigation suggestions in a dropdown format
- * Shows question-based navigation items
+ * Shows question-based navigation items with icons
  */
 export function NavigationSuggestions({
   isOpen,
@@ -64,12 +87,15 @@ export function NavigationSuggestions({
               <button
                 onClick={() => onSelect?.(item.href)}
                 className={cn(
-                  "w-full rounded-md px-3 py-2 text-left text-sm transition-all",
+                  "w-full rounded-md px-3 py-2 text-left text-sm transition-all flex items-center gap-3",
                   "text-slate-700 hover:bg-blue-50 hover:text-blue-600",
                   "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-0"
                 )}
               >
-                <span className="font-medium">{item.question}</span>
+                <span className="text-slate-600 hover:text-blue-600 flex-shrink-0">
+                  {getNavIcon(item.id)}
+                </span>
+                <span className="font-medium flex-1">{item.question}</span>
               </button>
             </Link>
           </motion.div>

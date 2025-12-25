@@ -10,5 +10,5 @@ export const CONTACT_INFO: ContactInfo = {
   linkedin: "https://linkedin.com/in/yourprofile",
   github: "https://github.com/yourprofile",
   twitter: "https://twitter.com/yourprofile",
-  calendly: "https://calendly.com/prabhathchellingi2003?hide_landing_page_details=1&hide_gdpr_banner=1",
+  calendly: "https://calendly.com/prabhathchellingi2003/let-s-connect",
 };

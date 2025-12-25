@@ -1,9 +1,13 @@
 "use client";
 
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { motion } from "framer-motion";
+import { Home } from "lucide-react";
 import { UpdateBanner } from "@/components/landing/UpdateBanner";
 import { Footer } from "@/components/layout/Footer";
-import { SearchNavigation } from "@/components/ui/SearchNavigation";
+import { PageChatNavigation } from "@/components/ui/PageChatNavigation";
+import { getPageQuestion } from "@/lib/utils/navigation";
 import { cn } from "@/lib/utils/cn";
 
 interface PageLayoutProps {
@@ -14,9 +18,12 @@ interface PageLayoutProps {
 /**
  * PageLayout Component
  * Shared layout for all portfolio pages
- * Includes: Banner, Search Navigation, Content Area, Footer
+ * Includes: Banner, Chat Navigation, Content Area, Footer
  */
 export function PageLayout({ title, children }: PageLayoutProps) {
+  const pathname = usePathname();
+  const question = getPageQuestion(pathname);
+
   return (
     <div className="flex flex-col min-h-screen bg-white text-slate-900">
       {/* Top Banner */}
@@ -24,15 +31,25 @@ export function PageLayout({ title, children }: PageLayoutProps) {
         <UpdateBanner />
       </div>
 
+      {/* Home Button - Top left corner */}
+      <Link href="/">
+        <motion.button
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="fixed top-6 left-6 z-50 p-3 rounded-lg bg-white/90 border border-slate-200 shadow-lg hover:shadow-xl hover:border-slate-300 transition-all"
+          title="Back to Home"
+        >
+          <Home size={20} className="text-slate-700" />
+        </motion.button>
+      </Link>
+
+      {/* Chat Navigation - Fixed overlay below banner */}
+      <PageChatNavigation question={question} />
+
       {/* Main Content Area with padding for banner */}
       <main className="flex-1 pt-24 lg:pt-32">
-        {/* Search Navigation - Single line with circular edges */}
-        <div className="sticky top-24 lg:top-32 z-30 bg-white/95 backdrop-blur-sm border-b border-slate-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <SearchNavigation title={title} />
-          </div>
-        </div>
-
         {/* Content Box */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           <motion.div

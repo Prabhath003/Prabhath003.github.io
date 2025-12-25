@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, easeOut } from "framer-motion";
+import Link from "next/link";
 import { cn } from "@/lib/utils/cn";
 
 /**
@@ -237,26 +238,30 @@ export function IntroSection() {
 
       {/* CTA */}
       <motion.div variants={itemVariants} className="flex gap-3 pt-2 w-full justify-start">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className={cn(
-            "inline-flex items-center justify-center rounded-lg px-5 py-2 text-sm font-semibold",
-            "bg-gradient-to-r from-blue-600 to-purple-600 text-white",
-            "hover:shadow-lg transition-all duration-200"
-          )}>
-          My Work
-        </motion.button>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className={cn(
-            "inline-flex items-center justify-center rounded-lg px-5 py-2 text-sm font-semibold",
-            "bg-transparent text-slate-700 border border-slate-400",
-            "hover:border-slate-600 hover:shadow-md transition-all duration-200"
-          )}>
-          Contact
-        </motion.button>
+        <Link href="/projects">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={cn(
+              "inline-flex items-center justify-center rounded-lg px-5 py-2 text-sm font-semibold",
+              "bg-gradient-to-r from-blue-600 to-purple-600 text-white",
+              "hover:shadow-lg transition-all duration-200"
+            )}>
+            My Work
+          </motion.button>
+        </Link>
+        <Link href="/contact">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={cn(
+              "inline-flex items-center justify-center rounded-lg px-5 py-2 text-sm font-semibold",
+              "bg-transparent text-slate-700 border border-slate-400",
+              "hover:border-slate-600 hover:shadow-md transition-all duration-200"
+            )}>
+            Contact
+          </motion.button>
+        </Link>
       </motion.div>
     </motion.div>
   );
