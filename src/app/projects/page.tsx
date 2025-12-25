@@ -54,15 +54,15 @@ export default function ProjectsPage() {
                 </div>
               </div>
 
-              {/* Technologies */}
-              {project.technologies && project.technologies.length > 0 && (
+              {/* Tags/Technologies */}
+              {project.tags && project.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 5).map((tech) => (
+                  {project.tags.slice(0, 5).map((tag) => (
                     <span
-                      key={tech}
+                      key={tag}
                       className="text-xs px-3 py-1 rounded-full bg-blue-100 text-blue-700"
                     >
-                      {tech}
+                      {tag}
                     </span>
                   ))}
                 </div>
