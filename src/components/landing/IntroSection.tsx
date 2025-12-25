@@ -37,11 +37,11 @@ export function IntroSection() {
   const [introTextComplete, setIntroTextComplete] = useState(false);
 
   const texts = {
-    mainHeading: "Building Intelligence",
+    mainHeading: "Building Trustworthy AI",
     nameText: "Prabhath Chellingi",
-    roleText: "Machine Learning Engineer",
-    taglineText: "LLM Systems • Agentic AI • Knowledge Graphs",
-    introText: "Founding ML Engineer at GiKA.ai, building autonomous AI agents",
+    roleText: "ML Research Engineer",
+    taglineText: "LLM fine-tuning • Agentic AI • Knowledge Graphs",
+    introText: "Founding ML Engineer at GiKA.ai, specializing in LLM systems and autonomous AI agents",
   };
 
   // Main heading typing effect

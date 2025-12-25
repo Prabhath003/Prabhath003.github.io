@@ -5,10 +5,10 @@ import { ContactInfo } from "@/types";
  * Edit this to update your contact details
  */
 export const CONTACT_INFO: ContactInfo = {
-  email: "your.email@example.com",
-  phone: "+1 (555) 123-4567",
-  linkedin: "https://linkedin.com/in/yourprofile",
-  github: "https://github.com/yourprofile",
+  email: "prabhathchellingi2003@gmail.com",
+  phone: "+91-9963771971",
+  linkedin: "https://linkedin.com/in/prabhath-chellingi/",
+  github: "https://github.com/Prabhath003",
   twitter: "https://twitter.com/yourprofile",
   calendly: "https://calendly.com/prabhathchellingi2003/let-s-connect",
 };
