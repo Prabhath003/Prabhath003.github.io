@@ -134,7 +134,7 @@ export default function ContactPage() {
           <div
             className="calendly-inline-widget"
             data-url={CONTACT_INFO.calendly}
-            style={{ minHeight: "600px" }}
+            style={{ minHeight: "900px" }}
             suppressHydrationWarning
           ></div>
           <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
