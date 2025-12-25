@@ -23,7 +23,7 @@ export default function Home() {
   const [loadingComplete, setLoadingComplete] = useState(false);
 
   return (
-    <div className="flex min-h-screen flex-col bg-white text-slate-900">
+    <div className="flex flex-col overflow-x-hidden bg-white text-slate-900">
       {/* Loading Screen */}
       <AnimatePresence>
         {!loadingComplete && (
@@ -31,23 +31,23 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Main Content Area - Full viewport height, with padding to account for fixed banner */}
-      <main className="relative flex flex-1 flex-col overflow-hidden lg:flex-row pt-24 lg:pt-32">
+      {/* Main Content Area - Exactly viewport height and width */}
+      <main className="relative h-screen w-screen flex flex-col overflow-hidden lg:flex-row">
         {/* Neural Network Background - Only mounts after loading screen completes */}
         {loadingComplete && (
-          <div className="absolute inset-0 z-0 top-16 lg:top-24">
+          <div className="absolute inset-0 z-0">
             <NeuralNetworkBackground />
           </div>
         )}
 
-        {/* Content wrapper - centered perfectly */}
-        <div className="relative z-10 flex flex-1 flex-col lg:flex-row items-center justify-center w-full h-full">
+        {/* Content wrapper - Full viewport dimensions, centered */}
+        <div className="relative z-10 flex h-full w-full flex-col lg:flex-row items-center justify-center">
           {/* Intro Section - Appears after neural network animation completes (~12.5s) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={loadingComplete ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98 }}
             transition={{ delay: 13, duration: 0.5 }}
-            className="flex flex-1 flex-col w-full h-full items-center justify-center"
+            className="flex h-full w-full flex-col items-center justify-center"
           >
             <IntroSection />
           </motion.div>
@@ -57,24 +57,24 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.98 }}
             animate={loadingComplete ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98 }}
             transition={{ delay: 19, duration: 0.5 }}
-            className="flex flex-1 flex-col w-full h-full items-center justify-center"
+            className="flex h-full w-full flex-col items-center justify-center"
           >
             <ChatbotNavigation />
           </motion.div>
         </div>
       </main>
 
-      {/* Update Banner - Appears with intro section (~13s) */}
+      {/* Update Banner - Fixed overlay at top, appears with intro section (~13s) */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={loadingComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
         transition={{ delay: 13.2, duration: 0.4 }}
-        className="fixed top-0 left-0 right-0 z-40"
+        className="fixed top-0 left-0 right-0 z-50"
       >
         <UpdateBanner />
       </motion.div>
 
-      {/* Footer - Fades in during neural zoom phase (~12-14s) */}
+      {/* Footer - Below viewport, fades in during neural zoom phase (~12-14s) */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={loadingComplete ? { opacity: 1 } : { opacity: 0 }}
